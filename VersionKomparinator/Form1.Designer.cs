@@ -81,19 +81,19 @@
             // 
             this.button3.Location = new System.Drawing.Point(36, 215);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 34);
+            this.button3.Size = new System.Drawing.Size(671, 34);
             this.button3.TabIndex = 4;
-            this.button3.Text = "button3";
+            this.button3.Text = "KomPAIR 3.14 versus Three Point Fourteen";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // labelResults
             // 
             this.labelResults.AutoSize = true;
             this.labelResults.Location = new System.Drawing.Point(200, 344);
             this.labelResults.Name = "labelResults";
-            this.labelResults.Size = new System.Drawing.Size(59, 25);
+            this.labelResults.Size = new System.Drawing.Size(0, 25);
             this.labelResults.TabIndex = 5;
-            this.labelResults.Text = "label1";
             // 
             // Form1
             // 

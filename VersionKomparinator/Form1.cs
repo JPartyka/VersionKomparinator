@@ -18,27 +18,13 @@ namespace VersionKomparinator
         public Form1()
         {
             InitializeComponent();
-
-            string strNumber = "Three Thousand Five Hundred Sixty Two";
-            var rtnNumber = ConvertToNumbers(strNumber);
-            strNumber = "Two Hundred and Thirty Four";
-            rtnNumber = ConvertToNumbers(strNumber);
-
-            var TV = KomPairinate("2 point 3.14.Five");
-
-            Compair("2 point 3.14.Five", "1.2.3.4");
-
-
         }
 
         private void Compair(string v1, string v2)
         {
-            string? TV1 = KomPairinate(v1).ToString();
-            string? TV2 = KomPairinate(v2).ToString();
-
-            int Var1 = int.Parse(TV1);
-            int Var2 = int.Parse(TV2);
-            
+            int Var1 = int.Parse(KomPairinate(v1).ToString());
+            int Var2 = int.Parse(KomPairinate(v2).ToString());
+            //Var1 and Var2 are just more readable
             
             if (Var1 > Var2)
             {
@@ -57,10 +43,10 @@ namespace VersionKomparinator
         private object KomPairinate(string inboundVersionString)
         {
             var DotifiedVersionString = inboundVersionString.ToLower(); //force entire input string to lower case
-            DotifiedVersionString = inboundVersionString.Replace("point", "."); //replace all string 'point' with dots
+            DotifiedVersionString = DotifiedVersionString.Replace("point", "."); //replace all string 'point' with dots
             DotifiedVersionString = DotifiedVersionString.Replace(" ", ""); //remove all spaces
 
-            //Find DotCount
+            //Find DotCount - important
             int DotCount = DotifiedVersionString.Count(f =>
             {
                 return f == '.';
@@ -83,8 +69,6 @@ namespace VersionKomparinator
             {
                 if (r.IsMatch(item))
                 {
-                    //var TV4 = ConvertToNumbers(item);
-                    //strArr[forceIndex] = TV4.ToString();
                     strArr[forceIndex] = ConvertToNumbers(item).ToString();
                 }
                 forceIndex += 1;
@@ -135,6 +119,11 @@ namespace VersionKomparinator
         private void button2_Click(object sender, EventArgs e)
         {
             Compair("5.2", "19 point seven point 2.53");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Compair("3.14", "Three Point Fourteen");
         }
     }
 }
