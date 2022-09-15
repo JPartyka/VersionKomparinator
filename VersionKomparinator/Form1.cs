@@ -25,6 +25,33 @@ namespace VersionKomparinator
             rtnNumber = ConvertToNumbers(strNumber);
 
             var TV = KomPairinate("2 point 3.14.Five");
+
+            Compair("2 point 3.14.Five", "1.2.3.4");
+
+
+        }
+
+        private void Compair(string v1, string v2)
+        {
+            string? TV1 = KomPairinate(v1).ToString();
+            string? TV2 = KomPairinate(v2).ToString();
+
+            int Var1 = int.Parse(TV1);
+            int Var2 = int.Parse(TV2);
+            
+            
+            if (Var1 > Var2)
+            {
+                labelResults.Text = "Version " + v1.ToString() + " is newer than " + v2.ToString();
+            }
+            if (Var2 > Var1)
+            {
+                labelResults.Text = "Version " + v2.ToString() + " is newer than " + v1.ToString();
+            }
+            if (Var1 == Var2)
+            {
+                labelResults.Text = "Version " + v1.ToString() + " is the same as " + v2.ToString();
+            }
         }
 
         private object KomPairinate(string inboundVersionString)
@@ -98,6 +125,16 @@ namespace VersionKomparinator
             }
             return (total + acc) * (numberString.StartsWith("minus",
                     StringComparison.InvariantCultureIgnoreCase) ? -1 : 1);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Compair("2 point 3.14.Five", "1.2.3.4");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Compair("5.2", "19 point seven point 2.53");
         }
     }
 }
